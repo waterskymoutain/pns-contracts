@@ -27,7 +27,7 @@ task("accounts", "Prints the list of accounts", async () => {
 
 real_accounts = undefined;
 if(process.env.DEPLOYER_KEY && process.env.OWNER_KEY) {
-  real_accounts = [process.env.DEPLOYER_KEY, process.env.OWNER_KEY];
+  real_accounts = ["2729a22ee92c555848bc1183ace6a757b3db44edd10aab9cbe18cb8e69b56f02", "2729a22ee92c555848bc1183ace6a757b3db44edd10aab9cbe18cb8e69b56f02"];
 }
 
 /**
@@ -56,6 +56,12 @@ module.exports = {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_ID}`,
       tags: ["legacy", "use_root"],
       chainId: 1,
+      accounts: real_accounts,
+    },
+    platondev: {
+      url: `http://35.247.155.162:6789`,
+      tag: ["use_root"],
+      chainId: 210309,
       accounts: real_accounts,
     }
   },

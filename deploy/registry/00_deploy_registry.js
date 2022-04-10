@@ -3,8 +3,11 @@ const { ethers } = require("hardhat");
 const ZERO_HASH = '0x0000000000000000000000000000000000000000000000000000000000000000';
 
 module.exports = async ({getNamedAccounts, deployments, network}) => {
+    console.log("********************************");
     const {deploy} = deployments;
     const {deployer, owner} = await getNamedAccounts();
+
+    console.log("-----deployer=${deployer}, owner=${owner}");
 
     if(network.tags.legacy) {
         const contract = await deploy('LegacyENSRegistry', {
